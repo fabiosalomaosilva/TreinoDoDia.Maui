@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TreinoDoDia.Maui.Pages.Cadastro.NomeIdade"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
+             xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Background="White">
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#f8f8f8" StatusBarStyle="LightContent" />
+    </ContentPage.Behaviors>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image
+                Grid.Row="0"
+                Source="mulher_escritorio.png"
+                HeightRequest="300"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Logotipo" />
+
+
+        <Image
+                Grid.Row="2"
+                Source="background_border.png"
+                SemanticProperties.Description="Logotipo" />
+        <VerticalStackLayout Padding="20" Grid.Row="3" Background="#ff914c">
+            <Label Text="Informe seu nome e peso"
+                       Margin="0,-50,0,0"
+                       FontSize="25"                    
+                       HorizontalTextAlignment="Center"
+                       TextColor="White"
+                       FontFamily="NunitoSemiBold"/>
+            <Label Text="Nome"  
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       Margin="15,30,0,0"
+                       TextColor="White"/>
+            <dxe:TextEdit 
+                    PlaceholderText="Nome completo"
+                    Keyboard="Email"           
+                    BackgroundColor="White"
+                    CornerRadius="25"
+                    BorderThickness="0"
+                    FocusedBorderThickness="2"
+                    FocusedBorderColor="{StaticResource Gray300}"
+                    TextFontSize="18"
+                    TextColor="{StaticResource Gray600}"
+                    BoxPadding="14"
+                    HeightRequest="50"
+                    PlaceholderColor="{StaticResource Gray400}"
+                    IconColor="{StaticResource Gray400}"
+                    x:Name="emailItem" />
+
+            <Label Text="Idade"  
+                       FontSize="18"
+                       Margin="15,10,0,0"
+                       TextColor="White"/>
+            <dxe:TextEdit 
+                    PlaceholderText="ex: 25"
+                    BackgroundColor="White"
+                    CornerRadius="25"
+                    BorderThickness="0"
+                    FocusedBorderThickness="2"
+                    FocusedBorderColor="{StaticResource Gray300}"
+                    TextColor="{StaticResource Gray600}"
+                    PlaceholderColor="{StaticResource Gray400}"
+                    IconColor="{StaticResource Gray400}"
+                    BoxPadding="14"
+                    Keyboard="Telephone"
+                    HeightRequest="50"
+                    x:Name="senhaItem" />
+
+            <dx:DXButton Content="Avançar" 
+                        Margin="0,20,0,0"
+                         BackgroundColor="{StaticResource GrayDark}"
+                         TextColor="White"
+                         PressedTextColor="White"
+                         PressedBackgroundColor="{StaticResource GrayTouch}"
+                         HeightRequest="50"
+                         FontAttributes="Bold"
+                         Clicked="Avancar"/>
+
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

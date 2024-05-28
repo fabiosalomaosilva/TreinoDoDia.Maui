@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Name="TextBoxView"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TreinoDoDia.Maui.Components.TextBox">
+    <VerticalStackLayout>
+        <Frame x:Name="Frame"
+               Style="{StaticResource RoundedEntryStyle}">
+
+            <Entry Placeholder="{Binding Source={x:Reference TextBoxView}, Path=Placeholder}" 
+                   SemanticProperties.HeadingLevel="Level1"
+                   Focused="OnEntryFocused"
+                   Unfocused="OnEntryUnfocused"
+                   Text="{Binding Source={x:Reference TextBoxView}, Path=Text, Mode=TwoWay}"/>
+        </Frame>
+    </VerticalStackLayout>
+</ContentView>
