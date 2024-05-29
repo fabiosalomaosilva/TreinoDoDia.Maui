@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             droid:NavigationBar.Color="#ff914c"
              x:Class="TreinoDoDia.Maui.Pages.Cadastro.NomeIdade"
              NavigationPage.HasNavigationBar="False"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
@@ -9,7 +11,7 @@
              Background="White">
 
     <ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="#f8f8f8" StatusBarStyle="LightContent" />
+        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
     </ContentPage.Behaviors>
 
     <Grid>
@@ -34,7 +36,13 @@
         <VerticalStackLayout Padding="20" Grid.Row="3" Background="#ff914c">
             <Label Text="Informe seu nome e peso"
                        Margin="0,-50,0,0"
-                       FontSize="25"                    
+                       FontSize="22"                    
+                       HorizontalTextAlignment="Center"
+                       TextColor="White"
+                       FontFamily="NunitoSemiBold"/>
+            <Label Text="Vamos perguntar alguns dados de você para calcularmos suas medidas corporais"
+                       Margin="0,5,0,0"
+                       FontSize="16"                    
                        HorizontalTextAlignment="Center"
                        TextColor="White"
                        FontFamily="NunitoSemiBold"/>
@@ -55,7 +63,7 @@
                     TextColor="{StaticResource Gray600}"
                     BoxPadding="14"
                     HeightRequest="50"
-                    PlaceholderColor="{StaticResource Gray400}"
+                    PlaceholderColor="{StaticResource Gray300}"
                     IconColor="{StaticResource Gray400}"
                     x:Name="emailItem" />
 
@@ -71,14 +79,14 @@
                     FocusedBorderThickness="2"
                     FocusedBorderColor="{StaticResource Gray300}"
                     TextColor="{StaticResource Gray600}"
-                    PlaceholderColor="{StaticResource Gray400}"
+                    PlaceholderColor="{StaticResource Gray300}"
                     IconColor="{StaticResource Gray400}"
                     BoxPadding="14"
                     Keyboard="Telephone"
                     HeightRequest="50"
                     x:Name="senhaItem" />
 
-            <dx:DXButton Content="Avançar" 
+            <dx:DXButton Content="AVANÇAR" 
                         Margin="0,20,0,0"
                          BackgroundColor="{StaticResource GrayDark}"
                          TextColor="White"

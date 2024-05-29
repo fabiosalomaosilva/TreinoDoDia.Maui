@@ -1,41 +1,54 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             droid:NavigationBar.Color="#ff914c"
              x:Class="TreinoDoDia.Maui.Pages.Login"      
              NavigationPage.HasNavigationBar="False"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
              xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             BackgroundImageSource="background.png">
+             Background="#ff914c">
 
     <ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="#f8f8f8" StatusBarStyle="LightContent" />
+        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
     </ContentPage.Behaviors>
-    
-    <ScrollView>
-        <VerticalStackLayout VerticalOptions="Center" Padding="20" Spacing="20">
-            <VerticalStackLayout Margin="0,0,0,20">
-            <Image
+
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image  Grid.Row="0"
                 Source="logotipo.png"
                 HeightRequest="100"
                 Aspect="AspectFit"
+                VerticalOptions="Center"
                 SemanticProperties.Description="Logotipo" />
-            </VerticalStackLayout>
 
+        <Image
+                Grid.Row="2"
+                Source="background_border.png"
+                SemanticProperties.Description="Logotipo" />
+
+        <VerticalStackLayout Padding="20" Grid.Row="3" Background="#ff914c">
             <Label Text="Entrar com e-mail e senha"
-                       Margin="0,40,0,10"
-                       FontSize="21"
-                       TextColor="#F57C00"
-                       FontFamily="NunitoSemiBold"/>
+                    Margin="0,-50,0,0"
+                    FontSize="22"                    
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    FontFamily="NunitoSemiBold"/>
 
 
-            <VerticalStackLayout Margin="0,0,0,0">
-                <Label Text="E-mail"  
+            <Label Text="E-mail"  
                        FontFamily="NunitoRegular"
                        FontSize="18"
-                       Margin="15,0,0,0"
+                       Margin="15,30,0,0"
                        TextColor="White"/>
-                <dxe:TextEdit 
+            <dxe:TextEdit 
                     PlaceholderText="seu@email.com"
                     Keyboard="Email"           
                     BackgroundColor="White"
@@ -50,14 +63,12 @@
                     PlaceholderColor="{StaticResource Gray400}"
                     IconColor="{StaticResource Gray400}"
                     x:Name="emailItem" />
-            </VerticalStackLayout>
-            
-            <VerticalStackLayout>
-                <Label Text="Senha"  
+
+            <Label Text="Senha"  
                        FontSize="18"
-                       Margin="15,0,0,0"
+                       Margin="15,10,0,0"
                        TextColor="White"/>
-                <dxe:PasswordEdit 
+            <dxe:PasswordEdit 
                     PlaceholderText="******"
                     BackgroundColor="White"
                     CornerRadius="25"
@@ -70,11 +81,11 @@
                     BoxPadding="14"
                     HeightRequest="50"
                     x:Name="senhaItem" />
-            </VerticalStackLayout>
-            
+
             <dx:DXButton Content="ENTRAR" 
                          BackgroundColor="{StaticResource GrayDark}"
                          TextColor="White"
+                         Margin="0,20,0,0"
                          PressedTextColor="White"
                          PressedBackgroundColor="{StaticResource GrayTouch}"
                          HeightRequest="50"
@@ -83,5 +94,5 @@
 
 
         </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
 </ContentPage>

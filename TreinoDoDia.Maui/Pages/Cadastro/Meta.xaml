@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             droid:NavigationBar.Color="#ff914c"
              x:Class="TreinoDoDia.Maui.Pages.Cadastro.Meta"
              NavigationPage.HasNavigationBar="False"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
@@ -9,7 +11,7 @@
              Background="White">
 
     <ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="#f8f8f8" StatusBarStyle="LightContent" />
+        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
     </ContentPage.Behaviors>
     <Grid>
         <Grid.RowDefinitions>
@@ -33,18 +35,23 @@
                 SemanticProperties.Description="Logotipo" />
         <VerticalStackLayout Padding="20" Grid.Row="3" Background="#ff914c">
             <Label Text="Meta de peso"
-                       Margin="0,-50,0,0"
-                       FontSize="25"                    
+                    Margin="0,-50,0,0"
+                    FontSize="22"                    
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    FontFamily="NunitoSemiBold"/>
+
+            <Label Text="Qual a meta de peso você quer alcançar?"
+                       Margin="0,5,0,0"
+                       FontSize="16"                    
                        HorizontalTextAlignment="Center"
                        TextColor="White"
                        FontFamily="NunitoSemiBold"/>
-
-
             <Label Text="Sua meta"  
-                       FontFamily="NunitoRegular"
-                       FontSize="18"
-                       Margin="15,30,0,0"
-                       TextColor="White"/>
+                    FontFamily="NunitoRegular"
+                    FontSize="18"
+                    Margin="15,30,0,0"
+                    TextColor="White"/>
             <dxe:TextEdit 
                     PlaceholderText="valor em quilos"
                     Keyboard="Telephone"
@@ -57,12 +64,12 @@
                     TextColor="{StaticResource Gray600}"
                     BoxPadding="14"
                     HeightRequest="50"
-                    PlaceholderColor="{StaticResource Gray400}"
+                    PlaceholderColor="{StaticResource Gray300}"
                     IconColor="{StaticResource Gray400}"
                     x:Name="emailItem" />
 
 
-            <dx:DXButton Content="Avançar"                        
+            <dx:DXButton Content="AVANÇAR"                        
                          Margin="0,20,0,0"
                          BackgroundColor="{StaticResource GrayDark}"
                          TextColor="White"
