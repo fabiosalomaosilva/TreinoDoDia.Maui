@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
              droid:NavigationBar.Color="#ff914c"
-             x:Class="TreinoDoDia.Maui.Pages.Cadastro.NivelTreino"
+             x:Class="TreinoDoDia.Maui.Pages.Cadastro.MetaView"
+             xmlns:viewmodel="clr-namespace:TreinoDoDia.Maui.ViewModels"
+             x:DataType="viewmodel:MetaViewModel"
              NavigationPage.HasNavigationBar="False"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
              xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
@@ -22,38 +24,42 @@
         </Grid.RowDefinitions>
         <Image
                 Grid.Row="0"
-                Source="scheduler.png"
+                Source="mulher_meta.png"
                 HeightRequest="300"
                 Aspect="AspectFit"
                 Margin="0,60,0,0"    
                 VerticalOptions="Start"
-                SemanticProperties.Description="Logotipo" />
+                SemanticProperties.Description="planner" />
 
-        <Image
-                Grid.Row="2"
-                Source="background_border.png"
-                SemanticProperties.Description="Logotipo" />
+        <Frame CornerRadius="30" 
+               HeightRequest="60"
+               BorderColor="#ff914c"
+               BackgroundColor="#ff914c"
+               Grid.Row="2" 
+               Margin="0,0,0,-30"/>
+
         <VerticalStackLayout Padding="20" Grid.Row="3" Background="#ff914c">
-            <Label Text="Nível de atividade física"
-                       Margin="0,-50,0,0"
-                       FontSize="22"                    
-                       HorizontalTextAlignment="Center"
-                       TextColor="White"
-                       FontFamily="NunitoSemiBold"/>
-            <Label Text="Informe o quantos dias na semana você realiza atividades físicas"
+            <Label Text="Meta de peso"
+                    Margin="0,-20,0,0"
+                    FontSize="22"                    
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    FontFamily="NunitoSemiBold"/>
+
+            <Label Text="Qual a meta de peso você quer alcançar?"
                        Margin="0,5,0,0"
                        FontSize="16"                    
                        HorizontalTextAlignment="Center"
                        TextColor="White"
                        FontFamily="NunitoSemiBold"/>
-
-            <Label Text="Dias de treino semanal"  
-                       FontFamily="NunitoRegular"
-                       FontSize="18"
-                       Margin="15,30,0,0"
-                       TextColor="White"/>
+            <Label Text="Sua meta"  
+                    FontFamily="NunitoRegular"
+                    FontSize="18"
+                    Margin="15,30,0,0"
+                    TextColor="White"/>
             <dxe:TextEdit 
-                    PlaceholderText="Número de dias"
+                    Text="{Binding Meta}"
+                    PlaceholderText="valor em quilos"
                     Keyboard="Telephone"
                     BackgroundColor="White"
                     CornerRadius="25"
@@ -66,8 +72,28 @@
                     HeightRequest="50"
                     PlaceholderColor="{StaticResource Gray300}"
                     IconColor="{StaticResource Gray400}"
-                    x:Name="emailItem" />
-
+                    ReturnType="Done"/>
+            
+            <Label Text="Tempo para resultados"  
+                   FontSize="18"
+                   Margin="15,10,0,0"
+                   TextColor="White"/>
+            <dxe:ComboBoxEdit
+                SelectedValue="{Binding PrazoMetaSelect}"
+                ItemsSource="{Binding ListaPrazoMeta}"
+                DisplayMember="Descricao"
+                ValueMember="Id"
+                PlaceholderText="Selecione uma opção"
+                BackgroundColor="White"
+                CornerRadius="25"
+                BorderThickness="0"
+                FocusedBorderThickness="2"
+                FocusedBorderColor="{StaticResource Gray300}"
+                TextColor="{StaticResource Gray600}"
+                PlaceholderColor="{StaticResource Gray300}"
+                IconColor="{StaticResource Gray400}"
+                BoxPadding="14"
+                HeightRequest="50" />
 
             <dx:DXButton Content="AVANÇAR"                        
                          Margin="0,20,0,0"
@@ -77,7 +103,7 @@
                          PressedBackgroundColor="{StaticResource GrayTouch}"
                          HeightRequest="50"
                          FontAttributes="Bold"
-                         Clicked="Avancar"/>
+                         Command="{Binding SaveCommand}"/>
 
         </VerticalStackLayout>
     </Grid>

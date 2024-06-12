@@ -3,12 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
              droid:NavigationBar.Color="#ff914c"
-             x:Class="TreinoDoDia.Maui.Pages.Cadastro.NomeIdade"
+             x:Class="TreinoDoDia.Maui.Pages.Cadastro.NomeIdadeView"
+             xmlns:viewmodel="clr-namespace:TreinoDoDia.Maui.ViewModels"
+             x:DataType="viewmodel:NomeIdadeViewModel"
              NavigationPage.HasNavigationBar="False"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
              xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Background="White">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding ReturnViewCommand}"></BackButtonBehavior>
+    </Shell.BackButtonBehavior>
 
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
@@ -29,13 +35,16 @@
                 SemanticProperties.Description="Logotipo" />
 
 
-        <Image
-                Grid.Row="2"
-                Source="background_border.png"
-                SemanticProperties.Description="Logotipo" />
+        <Frame CornerRadius="30" 
+               HeightRequest="60"
+               BorderColor="#ff914c"
+               BackgroundColor="#ff914c"
+               Grid.Row="2" 
+               Margin="0,0,0,-30"/>
+
         <VerticalStackLayout Padding="20" Grid.Row="3" Background="#ff914c">
             <Label Text="Informe seu nome e peso"
-                       Margin="0,-50,0,0"
+                       Margin="0,-20,0,0"
                        FontSize="22"                    
                        HorizontalTextAlignment="Center"
                        TextColor="White"
@@ -52,6 +61,7 @@
                        Margin="15,30,0,0"
                        TextColor="White"/>
             <dxe:TextEdit 
+                    Text="{Binding NomeCompleto}"
                     PlaceholderText="Nome completo"
                     Keyboard="Email"           
                     BackgroundColor="White"
@@ -64,14 +74,18 @@
                     BoxPadding="14"
                     HeightRequest="50"
                     PlaceholderColor="{StaticResource Gray300}"
-                    IconColor="{StaticResource Gray400}"
-                    x:Name="emailItem" />
+                    IconColor="{StaticResource Gray400}" 
+                    ReturnType="Next"
+                    toolkit:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference IdadeEdit}"
+                    />
 
             <Label Text="Idade"  
                        FontSize="18"
                        Margin="15,10,0,0"
                        TextColor="White"/>
             <dxe:TextEdit 
+                    x:Name="IdadeEdit"
+                    Text="{Binding Idade}"
                     PlaceholderText="ex: 25"
                     BackgroundColor="White"
                     CornerRadius="25"
@@ -84,7 +98,32 @@
                     BoxPadding="14"
                     Keyboard="Telephone"
                     HeightRequest="50"
-                    x:Name="senhaItem" />
+                    ReturnType="Next"
+                    toolkit:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference GeneroEdit}"/>
+
+            <Label Text="Genero"  
+                   FontSize="18"
+                   Margin="15,10,0,0"
+                   TextColor="White"/>
+            <dxe:ComboBoxEdit
+                x:Name="GeneroEdit"
+                SelectedValue="{Binding Genero}"
+                ItemsSource="{Binding ListaGeneros}"
+                DisplayMember="Descricao"
+                ValueMember="Id"
+                PlaceholderText="Selecione uma opção"
+                BackgroundColor="White"
+                CornerRadius="25"
+                BorderThickness="0"
+                FocusedBorderThickness="2"
+                FocusedBorderColor="{StaticResource Gray300}"
+                TextColor="{StaticResource Gray600}"
+                PlaceholderColor="{StaticResource Gray300}"
+                IconColor="{StaticResource Gray400}"
+                BoxPadding="14"
+                HeightRequest="50" />
+
+
 
             <dx:DXButton Content="AVANÇAR" 
                         Margin="0,20,0,0"
@@ -94,7 +133,7 @@
                          PressedBackgroundColor="{StaticResource GrayTouch}"
                          HeightRequest="50"
                          FontAttributes="Bold"
-                         Clicked="Avancar"/>
+                         Command="{Binding SaveCommand}"/>
 
         </VerticalStackLayout>
     </Grid>

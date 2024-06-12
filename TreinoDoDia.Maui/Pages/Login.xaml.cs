@@ -1,15 +1,12 @@
-using TreinoDoDia.Maui.Pages.Cadastro;
+using TreinoDoDia.Maui.ViewModels;
 
 namespace TreinoDoDia.Maui.Pages;
 
 public partial class Login : ContentPage
 {
-    public Login()
+    public Login(LoginViewModel loginViewModel)
     {
         InitializeComponent();
-    }
-    private void Entrar(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new NomeIdade());
+        BindingContext = loginViewModel;
     }
 }

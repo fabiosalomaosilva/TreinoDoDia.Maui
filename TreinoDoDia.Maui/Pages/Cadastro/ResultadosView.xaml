@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             droid:NavigationBar.Color="#ff914c"
+             x:Class="TreinoDoDia.Maui.Pages.Cadastro.ResultadosView"
+             xmlns:viewmodel="clr-namespace:TreinoDoDia.Maui.ViewModels"
+             x:DataType="viewmodel:ResultadoViewModel"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
+             xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:converters="clr-namespace:TreinoDoDia.Maui.Converters"
+             Shell.NavBarIsVisible="False"
+             Background="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DecimalToStringConverter x:Key="DecimalToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image
+                Grid.Row="1"
+                Source="task.png"
+                HeightRequest="300"
+                Aspect="AspectFit"
+                Margin="0,0,0,90"    
+                VerticalOptions="Start"
+                SemanticProperties.Description="Task" />
+
+        <Frame CornerRadius="30" 
+               HeightRequest="60"
+               BorderColor="#ff914c"
+               BackgroundColor="#ff914c"
+               Grid.Row="2" 
+               Margin="0,0,0,-30"/>
+
+        <VerticalStackLayout Padding="20" Grid.Row="3" Background="#ff914c">
+            <Label Text="Métricas corporais"
+                       Margin="0,-20,0,0"
+                       FontSize="22"                    
+                       HorizontalTextAlignment="Center"
+                       TextColor="White"
+                       FontFamily="NunitoSemiBold"/>
+
+
+            <HorizontalStackLayout Margin="0,20,0,0">
+                <Label Text="Nome: "  
+                       FontFamily="NunitoRegular"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.NomeCompleto}"  
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,10,0,0" VerticalOptions="End">
+                <Label Text="Idade: "  
+                       WidthRequest="200"
+                       FontFamily="NunitoRegular"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.Idade}"  
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,10,0,0" VerticalOptions="End">
+                <Label Text="Altura : "  
+                       WidthRequest="200"
+                       FontFamily="NunitoRegular"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.Altura}"  
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,10,0,0" VerticalOptions="End">
+                <Label Text="Peso atual: "  
+                       WidthRequest="200"
+                       FontFamily="NunitoRegular"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.Peso}"  
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,10,0,0" VerticalOptions="End">
+                <Label Text="Meta de peso: "  
+                       WidthRequest="200"
+                       FontFamily="NunitoRegular"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.PesoMeta}"  
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,10,0,0" VerticalOptions="End">
+                <Label Text="Objetivo em semanas: "  
+                       WidthRequest="200"
+                       FontFamily="NunitoRegular"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.TempoMeta}"  
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,10,0,0" VerticalOptions="End">
+                <Label Text="Taxa metabólica basal: "  
+                       WidthRequest="200"
+                       FontFamily="NunitoRegular"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.TaxaMetabolicaBasal, Converter={StaticResource DecimalToStringConverter}}"  
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,10,0,0" VerticalOptions="End">
+                <Label Text="Gasto calórico diário: "  
+                       WidthRequest="200"
+                       FontFamily="NunitoRegular"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.GastoEnergeticoCaloricoDiario, Converter={StaticResource DecimalToStringConverter}}"    
+                       FontFamily="NunitoRegular"
+                       FontSize="18"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,10,0,0" VerticalOptions="End">
+                <Label Text="Meta gasto calórico: "  
+                       WidthRequest="200"
+                       FontFamily="NunitoBold"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="15,0,0,0"
+                       TextColor="White"/>
+                <Label Text="{Binding MetricasCorporais.GastoEnergeticoCaloricoDiarioReduzido, Converter={StaticResource DecimalToStringConverter}}"    
+                       FontFamily="NunitoBold"
+                       FontSize="18"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+
+
+<dx:DXButton Content="AVANÇAR"                        
+                         Margin="0,20,0,0"
+                         BackgroundColor="{StaticResource GrayDark}"
+                         TextColor="White"
+                         PressedTextColor="White"
+                         PressedBackgroundColor="{StaticResource GrayTouch}"
+                         HeightRequest="50"
+                         FontAttributes="Bold"
+                         IsEnabled="False"/>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

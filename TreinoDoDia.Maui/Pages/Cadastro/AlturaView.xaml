@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
              droid:NavigationBar.Color="#ff914c"
-             x:Class="TreinoDoDia.Maui.Pages.Cadastro.Altura"
+             x:Class="TreinoDoDia.Maui.Pages.Cadastro.AlturaView"
+             xmlns:viewmodel="clr-namespace:TreinoDoDia.Maui.ViewModels"
+             x:DataType="viewmodel:AlturaViewModel"
              NavigationPage.HasNavigationBar="False"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
              xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
@@ -29,13 +31,16 @@
                 VerticalOptions="Start"
                 SemanticProperties.Description="pessoa" />
 
-        <Image
-                Grid.Row="2"
-                Source="background_border.png"
-                SemanticProperties.Description="Logotipo" />
+        <Frame CornerRadius="30" 
+               HeightRequest="60"
+               BorderColor="#ff914c"
+               BackgroundColor="#ff914c"
+               Grid.Row="2" 
+               Margin="0,0,0,-30"/>
+
         <VerticalStackLayout Padding="20" Grid.Row="3" Background="#ff914c">
             <Label Text="Informe sua altura"
-                       Margin="0,-50,0,0"
+                       Margin="0,-20,0,0"
                        FontSize="22"                    
                        HorizontalTextAlignment="Center"
                        TextColor="White"
@@ -53,6 +58,7 @@
                        Margin="15,30,0,0"
                        TextColor="White"/>
             <dxe:TextEdit 
+                    Text="{Binding Altura}"
                     PlaceholderText="altura em centímetros"
                     Keyboard="Telephone"
                     BackgroundColor="White"
@@ -66,7 +72,7 @@
                     HeightRequest="50"
                     PlaceholderColor="{StaticResource Gray300}"
                     IconColor="{StaticResource Gray400}"
-                    x:Name="emailItem" />
+                    ReturnType="Done"/>
 
 
             <dx:DXButton Content="AVANÇAR"                        
@@ -77,7 +83,7 @@
                          PressedBackgroundColor="{StaticResource GrayTouch}"
                          HeightRequest="50"
                          FontAttributes="Bold"
-                         Clicked="Avancar"/>
+                         Command="{Binding SaveCommand}"/>
 
         </VerticalStackLayout>
     </Grid>

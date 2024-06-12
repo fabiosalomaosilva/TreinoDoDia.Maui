@@ -2,32 +2,33 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:TreinoDoDia.Maui.Components"
-             x:Class="TreinoDoDia.Maui.MainPage">
+             xmlns:dxe="clr-namespace:DevExpress.Maui.Gauges;assembly=DevExpress.Maui.Gauges"
+             xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             droid:NavigationBar.Color="white"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="TreinoDoDia.Maui.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Background="white">
+    
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="white" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
-
-            <components:TextBox Text="{Binding UserInput}" Placeholder="Deu certo" />
-            
-            <DatePicker></DatePicker>
-
-            <Picker></Picker>
-
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
+        <VerticalStackLayout VerticalOptions="Center" Padding="20" BackgroundColor="White">
+            <Image 
+                    Source="logo.png"
+                    WidthRequest="270"
+                    Aspect="AspectFit"
+                    VerticalOptions="Center"
+                    Margin="0,0,0,20"
+                    SemanticProperties.Description="Logotipo" />
+        <dxe:RadialProgressBar  IsIndeterminate="true" 
+                                WidthRequest="60"
+                                Fill="LightGray"
+                                ValueIndicatorFill="Orange"
+                                Thickness="8"
+                                ValueIndicatorThickness="9"
+                                SweepAngle="360" />
         </VerticalStackLayout>
-    </ScrollView>
-
 </ContentPage>

@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
              droid:NavigationBar.Color="#ff914c"
-             x:Class="TreinoDoDia.Maui.Pages.Login"    
+             x:Class="TreinoDoDia.Maui.Pages.RegisterView"    
              xmlns:viewmodel="clr-namespace:TreinoDoDia.Maui.ViewModels"
-             x:DataType="viewmodel:LoginViewModel"
+             x:DataType="viewmodel:RegisterViewModel"
              NavigationPage.HasNavigationBar="False"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
              xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
@@ -54,7 +54,7 @@
                />
 
         <VerticalStackLayout Padding="20" Grid.Row="4" Background="#ff914c" Margin="0,0,0,-4">
-            <Label Text="Entrar com e-mail e senha"
+            <Label Text="Cadastrar usuário"
                     Margin="0,-20,0,0"
                     FontSize="22"                    
                     HorizontalTextAlignment="Center"
@@ -81,16 +81,13 @@
                     BoxPadding="14"
                     HeightRequest="50"
                     PlaceholderColor="{StaticResource Gray400}"
-                    IconColor="{StaticResource Gray400}"
-                    toolkit:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference PasswordEdit}"
-                    />
+                    IconColor="{StaticResource Gray400}" />
 
             <Label Text="Senha"  
                        FontSize="18"
                        Margin="15,10,0,0"
                        TextColor="White"/>
             <dxe:PasswordEdit 
-                    x:Name="PasswordEdit"
                     Text="{Binding Password}"
                     PlaceholderText="******"
                     BackgroundColor="White"
@@ -104,7 +101,7 @@
                     BoxPadding="14"
                     HeightRequest="50" />
 
-            <dx:DXButton Content="ENTRAR" 
+            <dx:DXButton Content="SALVAR" 
                          BackgroundColor="{StaticResource GrayDark}"
                          TextColor="White"
                          Margin="0,20,0,0"
@@ -112,20 +109,7 @@
                          PressedBackgroundColor="{StaticResource GrayTouch}"
                          HeightRequest="50"
                          FontAttributes="Bold"
-                         Command="{Binding LoginCommand}"/>
-
-            <VerticalStackLayout  Margin="0,10,0,0">
-
-                <dx:DXButton Content="CRIE SUA CONTA GRÁTIS" 
-                             BackgroundColor="{StaticResource GreenLight}"
-                             TextColor="White"
-                             Margin="0,10,0,0"
-                             PressedTextColor="White"
-                             PressedBackgroundColor="{StaticResource GrayTouch}"
-                             HeightRequest="50"
-                             FontAttributes="Bold"
-                             Command="{Binding RegisterCommand}"/>
-            </VerticalStackLayout>
+                         Command="{Binding RegisterCommand}"/>
 
 
         </VerticalStackLayout>

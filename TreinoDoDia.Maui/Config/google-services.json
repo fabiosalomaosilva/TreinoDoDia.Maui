@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "169103834513",
+    "project_id": "treino-do-dia-768e8",
+    "storage_bucket": "treino-do-dia-768e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169103834513:android:e5b5ea076d1091a481ee30",
+        "android_client_info": {
+          "package_name": "com.fabiosalomao.treinododia.maui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwFqjRzullv5DwcokU7hT49Zi4s1n3e8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

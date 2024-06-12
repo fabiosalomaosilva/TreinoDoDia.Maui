@@ -3,13 +3,49 @@
     x:Class="TreinoDoDia.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:TreinoDoDia.Maui"
-    Shell.FlyoutBehavior="Disabled"
-    Title="TreinoDoDia.Maui">
+    xmlns:local="clr-namespace:TreinoDoDia.Maui.Pages"
+    xmlns:cadastros="clr-namespace:TreinoDoDia.Maui.Pages.Cadastro"
+    NavigationPage.HasNavigationBar="False"
+    Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        NavigationPage.HasNavigationBar="False"
+        ContentTemplate="{DataTemplate local:Login}"
+        Route="Login" />
+
+    <ShellContent
+        NavigationPage.HasNavigationBar="False"
+        ContentTemplate="{DataTemplate cadastros:NomeIdadeView}"
+        Route="NomeIdadeView" />
+
+    <ShellContent
+        NavigationPage.HasNavigationBar="False"
+        ContentTemplate="{DataTemplate cadastros:AlturaView}"
+        Route="AlturaView" />
+
+    <ShellContent
+        NavigationPage.HasNavigationBar="False"
+        ContentTemplate="{DataTemplate cadastros:PesoView}"
+        Route="PesoView" />
+
+    <ShellContent
+        NavigationPage.HasNavigationBar="False"
+        ContentTemplate="{DataTemplate cadastros:NivelTreinoView}"
+        Route="NivelTreinoView" />
+
+    <ShellContent
+        NavigationPage.HasNavigationBar="False"
+        ContentTemplate="{DataTemplate cadastros:MetaView}"
+        Route="MetaView" />
+
+    <ShellContent
+        NavigationPage.HasNavigationBar="False"
+        ContentTemplate="{DataTemplate cadastros:ResultadosView}"
+        Route="ResultadosView" />
+
+    <ShellContent
+        NavigationPage.HasNavigationBar="False"
+        ContentTemplate="{DataTemplate local:RegisterView}"
+        Route="RegisterView" />
 
 </Shell>

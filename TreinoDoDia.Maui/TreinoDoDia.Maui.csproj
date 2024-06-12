@@ -21,10 +21,10 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>TreinoDoDia.Maui</ApplicationTitle>
+		<ApplicationTitle>Treino do Dia</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.treinododia.maui</ApplicationId>
+		<ApplicationId>com.fabiosalomao.treinododia.maui</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -40,11 +40,12 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.png" Color="#FFFFFF" />
+		<!--<MauiIcon Include="Resources\AppIcon\appicon1.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" /> -->
+		<MauiIcon Include="Resources\AppIcon\logoicon.svg" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
+		<MauiSplashScreen Include="Resources\Splash\splash.png" Color="#FFFFFF" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
@@ -57,6 +58,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\appicon.png" />
+	  <None Remove="Resources\AppIcon\logoicon.svg" />
 	  <None Remove="Resources\Fonts\Nunito-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Nunito-Light.ttf" />
 	  <None Remove="Resources\Fonts\Nunito-Medium.ttf" />
@@ -82,29 +85,64 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="DevExpress.Maui.Editors" Version="23.2.6" />
+		<PackageReference Include="DevExpress.Maui.Gauges" Version="23.2.6" />
+		<PackageReference Include="FirebaseAuthentication.net" Version="4.1.0" />
+		<PackageReference Include="Google.Cloud.Firestore" Version="3.7.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.20" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.20" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="OpenAI" Version="1.11.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\Cadastro\AlturaView.xaml.cs">
+	    <DependentUpon>AlturaView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Cadastro\MetaView.xaml.cs">
+	    <DependentUpon>MetaView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Cadastro\NivelTreinoView.xaml.cs">
+	    <DependentUpon>NivelTreinoView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Cadastro\NomeIdadeView.xaml.cs">
+	    <DependentUpon>NomeIdadeView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Cadastro\PesoView.xaml.cs">
+	    <DependentUpon>PesoView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Cadastro\ResultadosView.xaml.cs">
+	    <DependentUpon>ResultadosView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\RegisterView.xaml.cs">
+	    <DependentUpon>RegisterView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Components\TextBox.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Cadastro\Altura.xaml">
+	  <MauiXaml Update="Pages\Cadastro\AlturaView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Cadastro\Meta.xaml">
+	  <MauiXaml Update="Pages\Cadastro\MetaView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Cadastro\NivelTreino.xaml">
+	  <MauiXaml Update="Pages\Cadastro\NivelTreinoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Cadastro\NomeIdade.xaml">
+	  <MauiXaml Update="Pages\Cadastro\NomeIdadeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Cadastro\Peso.xaml">
+	  <MauiXaml Update="Pages\Cadastro\ResultadosView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Cadastro\PesoView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\RegisterView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Login.xaml">
